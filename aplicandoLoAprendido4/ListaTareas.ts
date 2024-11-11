@@ -4,7 +4,7 @@ export class listaTareas{
     constructor(){
         this.#tareas=[];
     }
-    aniadirTarea(nuevaTarea:Tarea){
+    aniadirTarea(nuevaTarea:Tarea): void{
         this.#tareas.push(nuevaTarea);
     }
     esVacia():boolean{
@@ -19,16 +19,14 @@ export class listaTareas{
             return 0;
         });
     }
-    filtrarTareasPorEstado(estado:string):void{
-        let estadoTareas = [];
+    filtrarTareasPorEstado(estado:string):number[]|Tarea[]{
         if(estado !== 'Todas'){
-            type TareaConIndice = Tarea & { indice: number };
-            const tareasFiltradasConIndice = this.#tareas
-        .map((tarea: Tarea, indice: number): TareaConIndice => ({ ...tarea, indice }))  // Copia todas las propiedades de `tarea` y agrega el índice
-        .filter((tareaConIndice: TareaConIndice) => tareaConIndice.getEstado() === estado);  // Filtra por el estado
+            return this.#tareas
+            .map((tarea, i) => ({ tarea, indice: i }))  // Crea un objeto temporal con tarea e índice
+            .filter(({ tarea }) => tarea.getEstado() === estado)  // Filtra por el estado
+            .map(({ indice }) => indice);  // Extrae solo los índices
         } else {
-            return this.tareas;
+            return this.#tareas;
         }
-        return estadoTareas;
     }
 }
