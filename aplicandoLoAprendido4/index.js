@@ -1,7 +1,7 @@
-import { listaTareas } from "./ListaTareas";
-import { Tarea } from "./tarea";
+import { listaTareas } from "./ListaTareas.js";
+import { Tarea } from "./tarea.js";
 
-const xd:listaTareas = new listaTareas()
+const xd = new listaTareas()
 
 xd.aniadirTarea(new Tarea())
 let tarea = new Tarea();

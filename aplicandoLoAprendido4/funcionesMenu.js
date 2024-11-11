@@ -1,12 +1,12 @@
-import { escribirEnPantalla } from "./funcionesPantalla";
+import { escribirEnPantalla } from "./funcionesPantalla.js";
 
-export function menuPrincipal():void{
+export function menuPrincipal(){
     escribirEnPantalla("Menú de opciones");
     escribirEnPantalla("[1] Agregar tarea.");
     escribirEnPantalla("[2] Ver tarea.");
     escribirEnPantalla("[3] Buscar tarea.");
 }
-export function menuVerMisTareas():void{
+export function menuVerMisTareas(){
     escribirEnPantalla("¿Qué tareas deseas ver?");
     escribirEnPantalla("[1] Todas.");
     escribirEnPantalla("[2] Pendientes.");
@@ -28,4 +28,3 @@ export function menuAgregarUnaTarea(){
     console.log("[5] Finalizar la creacíon de la tarea.");
     console.log("[0] Cancelar Creación de tarea.");
 }
-

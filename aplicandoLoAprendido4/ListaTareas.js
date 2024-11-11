@@ -1,16 +1,16 @@
-import { Tarea } from "./tarea";
+import { Tarea } from "./tarea.js";
 export class listaTareas{
-    #tareas: Tarea[];
+    #tareas;
     constructor(){
         this.#tareas=[];
     }
-    aniadirTarea(nuevaTarea:Tarea): void{
+    aniadirTarea(nuevaTarea){
         this.#tareas.push(nuevaTarea);
     }
-    esVacia():boolean{
+    esVacia(){
         return (this.#tareas.length===0);
     }
-    ordenarTareas():void{
+    ordenarTareas(){
         this.#tareas.sort((a, b) => {
             let tituloA = a.getTitulo().toLowerCase();
             let tituloB = b.getTitulo().toLowerCase();
@@ -19,7 +19,7 @@ export class listaTareas{
             return 0;
         });
     }
-    filtrarTareasPorEstado(estado:string):number[]|Tarea[]{
+    filtrarTareasPorEstado(estado){
         if(estado !== 'Todas'){
             return this.#tareas
             .map((tarea, i) => ({ tarea, indice: i }))  // Crea un objeto temporal con tarea e índice

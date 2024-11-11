@@ -1,13 +1,13 @@
-import * as ingreso from "./funcionesIngreso";
-import { listaTareas } from "./ListaTareas";
-import { Tarea } from "./tarea";
-import { comprobarTitulo } from "./funcionesControladoras";
-import { escribirEnPantalla, ingresoInvalido } from "./funcionesPantalla";
-import * as menu from "./funcionesMenu";
+import * as ingreso from "./funcionesIngreso.js";
+import { listaTareas } from "./ListaTareas.js";
+import { Tarea } from "./tarea.js";
+import { comprobarTitulo } from "./funcionesControladoras.js";
+import { escribirEnPantalla, ingresoInvalido } from "./funcionesPantalla.js";
+import * as menu from "./funcionesMenu.js";
 
 /*PROCESO DE AGREGAR TAREA */
-export function opcionPrincipal1(lista: listaTareas){
-    let op:string;
+export function opcionPrincipal1(lista){
+    let op;
     const nuevaTarea = new Tarea();
     do{
         menu.menuAgregarUnaTarea();
@@ -45,8 +45,8 @@ export function opcionPrincipal1(lista: listaTareas){
     }while(op!="0" && op!="5");
 }
 /*PROCESO VER TAREAS */
-export function opcionPrincipal2(lista:listaTareas):void{
-    let op:string;
+export function opcionPrincipal2(lista){
+    let op;
     do{
         menu.menuVerMisTareas();
         op=ingreso.ingresarPorTeclado();
